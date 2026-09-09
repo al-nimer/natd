@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: "IBM Plex Sans Arabic", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-maroon: #47131d;
+  --color-maroon-dark: #300d15;
+  --color-maroon-tint: #f6eeee;
+  --color-sand: #ab937f;
+  --color-sand-light: #d9cdc3;
+  --color-canvas: #f2f4f3;
+  --color-ink: #161313;
+  --color-ink-muted: #6b6564;
+  --color-line: #16131319;
+
+  --shadow-card: 0 20px 40px -20px rgba(71, 19, 29, 0.35);
+  --shadow-lift: 0 30px 60px -25px rgba(71, 19, 29, 0.45);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html[dir="rtl"] body {
+  font-family: var(--font-arabic);
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-maroon);
+  color: var(--color-canvas);
+}
+
+.glass {
+  background: color-mix(in srgb, var(--color-canvas) 65%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in srgb, var(--color-ink) 8%, transparent);
+}
+
+.glass-dark {
+  background: color-mix(in srgb, var(--color-maroon) 75%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in srgb, var(--color-canvas) 12%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
