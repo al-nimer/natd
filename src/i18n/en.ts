@@ -120,7 +120,7 @@ export const en = {
         date: 'Sep – Dec',
       },
       {
-        title: 'Qadiyat & Aptitude Assessment',
+        title: 'Qudurat & Aptitude Assessment',
         body: 'Sit the national aptitude test and, for design tracks, a studio-based creative assessment.',
         date: 'Jan',
       },
