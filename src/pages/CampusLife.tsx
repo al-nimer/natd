@@ -20,11 +20,16 @@ export function CampusLife() {
           <h2 className="mt-14 mb-6 text-xl font-bold text-[var(--color-ink)]">{t.campusLife.galleryTitle}</h2>
         </Reveal>
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {campusGalleryPrompts.map((item, i) => (
-            <Reveal key={item.id} delay={i * 0.06} className={i === 0 ? 'col-span-2 lg:col-span-2' : ''}>
-              <MediaPlaceholder promptId={item.id} aspect={item.aspect} shotType={item.shotType} prompt={item.prompt} />
-            </Reveal>
-          ))}
+          {campusGalleryPrompts.map((item, i) => {
+            const isFirst = i === 0
+            const isLast = i === campusGalleryPrompts.length - 1
+            const span = isFirst ? 'col-span-2' : isLast ? 'col-span-2 lg:col-span-4' : ''
+            return (
+              <Reveal key={item.id} delay={i * 0.06} className={span}>
+                <MediaPlaceholder promptId={item.id} aspect={item.aspect} shotType={item.shotType} prompt={item.prompt} />
+              </Reveal>
+            )
+          })}
         </div>
       </section>
 
