@@ -26,7 +26,13 @@ export function CampusLife() {
             const span = isFirst ? 'col-span-2' : isLast ? 'col-span-2 lg:col-span-4' : ''
             return (
               <Reveal key={item.id} delay={i * 0.06} className={span}>
-                <MediaPlaceholder promptId={item.id} aspect={item.aspect} shotType={item.shotType} prompt={item.prompt} />
+                <MediaPlaceholder
+                  promptId={item.id}
+                  aspect={item.aspect}
+                  shotType={item.shotType}
+                  prompt={item.prompt}
+                  fill={!isFirst && !isLast}
+                />
               </Reveal>
             )
           })}

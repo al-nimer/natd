@@ -11,6 +11,8 @@ interface MediaPlaceholderProps {
   /** When provided, renders this real image instead of the AI-prompt placeholder. */
   src?: string
   alt?: string
+  /** Fill the stretched height of a grid/flex parent instead of locking to `aspect`. */
+  fill?: boolean
 }
 
 const aspectClass: Record<AspectRatio, string> = {
@@ -26,14 +28,26 @@ const aspectClass: Record<AspectRatio, string> = {
  * data-replace-with-real-image so real photography can be swapped in later without
  * touching layout.
  */
-export function MediaPlaceholder({ promptId, aspect = '16/9', shotType, prompt, className = '', src, alt }: MediaPlaceholderProps) {
+export function MediaPlaceholder({
+  promptId,
+  aspect = '16/9',
+  shotType,
+  prompt,
+  className = '',
+  src,
+  alt,
+  fill = false,
+}: MediaPlaceholderProps) {
   const { t } = useLanguage()
+  // fill only kicks in at lg+, where a taller row-mate defines the row height;
+  // below that these sit alone or paired evenly, so the aspect ratio still applies.
+  const sizeClass = fill ? `${aspectClass[aspect]} lg:aspect-auto lg:h-full` : aspectClass[aspect]
 
   if (src) {
     return (
       <figure
         data-prompt-id={promptId}
-        className={`overflow-hidden rounded-xl border border-[var(--color-line)] ${aspectClass[aspect]} ${className}`}
+        className={`overflow-hidden rounded-xl border border-[var(--color-line)] ${sizeClass} ${className}`}
       >
         <img src={src} alt={alt ?? shotType} className="h-full w-full object-cover" />
       </figure>
@@ -44,7 +58,7 @@ export function MediaPlaceholder({ promptId, aspect = '16/9', shotType, prompt, 
     <figure
       data-replace-with-real-image="true"
       data-prompt-id={promptId}
-      className={`group relative overflow-hidden rounded-xl border border-[var(--color-line)] ${aspectClass[aspect]} ${className}`}
+      className={`group relative overflow-hidden rounded-xl border border-[var(--color-line)] ${sizeClass} ${className}`}
     >
       <div
         className="absolute inset-0"
