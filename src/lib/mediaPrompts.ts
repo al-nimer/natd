@@ -22,7 +22,7 @@ export const campusGalleryPrompts = [
   },
   {
     id: 'campus-majlis-studio',
-    aspect: '1/1' as const,
+    aspect: '3/4' as const,
     shotType: 'Lifestyle',
     prompt:
       'Low-seating majlis-style collaboration studio with modern geometric cushions in maroon and sand tones; a mixed group of Saudi students in thobes and abayas sketching on tablets and laptops, natural light through mashrabiya-inspired screens.',

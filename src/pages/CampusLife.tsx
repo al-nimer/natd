@@ -5,6 +5,7 @@ import { PillarCard } from '../components/PillarCard'
 import { MediaPlaceholder } from '../components/MediaPlaceholder'
 import { CTASection } from '../components/CTASection'
 import { campusGalleryPrompts } from '../lib/mediaPrompts'
+import { campusLifeImages } from '../lib/realMedia'
 
 export function CampusLife() {
   const { t } = useLanguage()
@@ -32,6 +33,8 @@ export function CampusLife() {
                   shotType={item.shotType}
                   prompt={item.prompt}
                   fill={!isFirst && !isLast}
+                  src={campusLifeImages[item.id]}
+                  alt={item.shotType}
                 />
               </Reveal>
             )

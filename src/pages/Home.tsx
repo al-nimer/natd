@@ -8,7 +8,7 @@ import { ProgramCard } from '../components/ProgramCard'
 import { MediaPlaceholder } from '../components/MediaPlaceholder'
 import { CTASection } from '../components/CTASection'
 import { heroPrompt, collegePrompts, campusGalleryPrompts } from '../lib/mediaPrompts'
-import { heroImage, programImages } from '../lib/realMedia'
+import { heroImage, programImages, campusLifeImages } from '../lib/realMedia'
 
 export function Home() {
   const { t } = useLanguage()
@@ -125,7 +125,14 @@ export function Home() {
           <div className="grid grid-cols-2 gap-4">
             {campusGalleryPrompts.slice(0, 4).map((item, i) => (
               <Reveal key={item.id} delay={i * 0.08} className={i % 3 === 0 ? 'col-span-2' : ''}>
-                <MediaPlaceholder promptId={item.id} aspect={i % 3 === 0 ? '16/9' : '1/1'} shotType={item.shotType} prompt={item.prompt} />
+                <MediaPlaceholder
+                  promptId={item.id}
+                  aspect={i % 3 === 0 ? '16/9' : '1/1'}
+                  shotType={item.shotType}
+                  prompt={item.prompt}
+                  src={campusLifeImages[item.id]}
+                  alt={item.shotType}
+                />
               </Reveal>
             ))}
           </div>

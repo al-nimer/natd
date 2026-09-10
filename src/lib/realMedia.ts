@@ -22,3 +22,11 @@ export const leadershipImages = [
   encodeURI('/Noura Al-Harbi.png'),
   encodeURI('/Khalid Al-Dosari.png'),
 ]
+
+/** Keyed by campusGalleryPrompts[].id. */
+export const campusLifeImages: Record<string, string> = {
+  'campus-maker-space': encodeURI('/Campus Life - Documentary.png'),
+  'campus-majlis-studio': encodeURI('/Campus Life - Lifestyle.png'),
+  'campus-ar-lab': encodeURI('/Campus Life - Editorial.png'),
+  'campus-courtyard': encodeURI('/Campus Life - Architectural.png'),
+}
