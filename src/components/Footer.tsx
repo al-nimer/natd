@@ -16,12 +16,7 @@ export function Footer() {
     <footer className="bg-[var(--color-maroon)] text-[var(--color-canvas)]">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3 lg:px-8">
         <div>
-          <div className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--color-canvas)] text-sm font-bold text-[var(--color-maroon)]">
-              N
-            </span>
-            <span className="text-sm font-semibold tracking-wide">NATD</span>
-          </div>
+          <img src="/logo-sec.png" alt="NATD — Najd Academy of Technology & Design" className="h-9 w-auto" />
           <p className="mt-4 max-w-xs text-sm text-[var(--color-sand-light)]">{t.footer.tagline}</p>
         </div>
 

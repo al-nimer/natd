@@ -48,11 +48,8 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <NavLink to="/" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--color-maroon)] text-sm font-bold text-[var(--color-canvas)]">
-            N
-          </span>
-          <span className="text-sm font-semibold tracking-wide text-[var(--color-ink)]">NATD</span>
+        <NavLink to="/" className="flex items-center">
+          <img src="/logo-main.png" alt="NATD — Najd Academy of Technology & Design" className="h-8 w-auto sm:h-9" />
         </NavLink>
 
         <nav className="hidden items-center gap-8 lg:flex">
@@ -108,7 +105,7 @@ export function Navbar() {
               aria-modal="true"
             >
               <div className="mb-6 flex items-center justify-between">
-                <span className="text-sm font-semibold text-[var(--color-ink)]">NATD</span>
+                <img src="/logo-main.png" alt="NATD — Najd Academy of Technology & Design" className="h-7 w-auto" />
                 <button
                   type="button"
                   onClick={() => setDrawerOpen(false)}
