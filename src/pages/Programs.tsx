@@ -4,6 +4,7 @@ import { Reveal } from '../components/Reveal'
 import { SectionHeading } from '../components/SectionHeading'
 import { ProgramCard } from '../components/ProgramCard'
 import { collegePrompts } from '../lib/mediaPrompts'
+import { programImages } from '../lib/realMedia'
 
 export function Programs() {
   const { t } = useLanguage()
@@ -46,6 +47,7 @@ export function Programs() {
                     duration={program.duration}
                     promptId={`${college.id}-${i}`}
                     prompt={collegePrompts[college.id]}
+                    image={programImages[program.name]}
                   />
                 </Reveal>
               ))}

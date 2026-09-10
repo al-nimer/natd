@@ -8,6 +8,9 @@ interface MediaPlaceholderProps {
   shotType: string
   prompt: string
   className?: string
+  /** When provided, renders this real image instead of the AI-prompt placeholder. */
+  src?: string
+  alt?: string
 }
 
 const aspectClass: Record<AspectRatio, string> = {
@@ -23,8 +26,19 @@ const aspectClass: Record<AspectRatio, string> = {
  * data-replace-with-real-image so real photography can be swapped in later without
  * touching layout.
  */
-export function MediaPlaceholder({ promptId, aspect = '16/9', shotType, prompt, className = '' }: MediaPlaceholderProps) {
+export function MediaPlaceholder({ promptId, aspect = '16/9', shotType, prompt, className = '', src, alt }: MediaPlaceholderProps) {
   const { t } = useLanguage()
+
+  if (src) {
+    return (
+      <figure
+        data-prompt-id={promptId}
+        className={`overflow-hidden rounded-xl border border-[var(--color-line)] ${aspectClass[aspect]} ${className}`}
+      >
+        <img src={src} alt={alt ?? shotType} className="h-full w-full object-cover" />
+      </figure>
+    )
+  }
 
   return (
     <figure

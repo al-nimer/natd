@@ -4,6 +4,7 @@ import { SectionHeading } from '../components/SectionHeading'
 import { LeadershipCard } from '../components/LeadershipCard'
 import { MediaPlaceholder } from '../components/MediaPlaceholder'
 import { aboutPrompt } from '../lib/mediaPrompts'
+import { leadershipImages } from '../lib/realMedia'
 
 export function About() {
   const { t } = useLanguage()
@@ -37,7 +38,7 @@ export function About() {
           <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
             {t.about.leadership.map((leader, i) => (
               <Reveal key={leader.name} delay={i * 0.08}>
-                <LeadershipCard name={leader.name} role={leader.role} promptId={`leader-${i}`} />
+                <LeadershipCard name={leader.name} role={leader.role} promptId={`leader-${i}`} image={leadershipImages[i]} />
               </Reveal>
             ))}
           </div>

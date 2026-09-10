@@ -6,6 +6,7 @@ import { Timeline } from '../components/Timeline'
 import { FAQAccordion } from '../components/FAQAccordion'
 import { MediaPlaceholder } from '../components/MediaPlaceholder'
 import { admissionsPrompt } from '../lib/mediaPrompts'
+import { admissionsHeroImage } from '../lib/realMedia'
 
 export function Admissions() {
   const { t } = useLanguage()
@@ -24,7 +25,14 @@ export function Admissions() {
             </NavLink>
           </Reveal>
           <Reveal delay={0.15}>
-            <MediaPlaceholder promptId="admissions-hero" aspect="4/3" shotType="Editorial" prompt={admissionsPrompt} />
+            <MediaPlaceholder
+              promptId="admissions-hero"
+              aspect="4/3"
+              shotType="Editorial"
+              prompt={admissionsPrompt}
+              src={admissionsHeroImage}
+              alt={t.admissions.title}
+            />
           </Reveal>
         </div>
       </section>

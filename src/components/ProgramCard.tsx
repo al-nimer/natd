@@ -9,15 +9,16 @@ interface ProgramCardProps {
   duration: string
   promptId: string
   prompt: string
+  image?: string
 }
 
-export function ProgramCard({ collegeName, programName, degree, duration, promptId, prompt }: ProgramCardProps) {
+export function ProgramCard({ collegeName, programName, degree, duration, promptId, prompt, image }: ProgramCardProps) {
   const { t } = useLanguage()
 
   return (
     <TiltCard className="h-full">
       <div className="flex h-full flex-col overflow-hidden rounded-xl border border-[var(--color-line)] bg-white shadow-[var(--shadow-card)] transition-shadow duration-300 hover:shadow-[var(--shadow-lift)]">
-        <MediaPlaceholder promptId={promptId} aspect="4/3" shotType="Editorial" prompt={prompt} />
+        <MediaPlaceholder promptId={promptId} aspect="4/3" shotType="Editorial" prompt={prompt} src={image} alt={programName} />
         <div className="flex flex-1 flex-col p-5">
           <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-[var(--color-sand)]">{collegeName}</p>
           <h3 className="mb-3 text-lg font-semibold leading-snug text-[var(--color-ink)]">{programName}</h3>

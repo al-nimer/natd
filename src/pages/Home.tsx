@@ -8,6 +8,7 @@ import { ProgramCard } from '../components/ProgramCard'
 import { MediaPlaceholder } from '../components/MediaPlaceholder'
 import { CTASection } from '../components/CTASection'
 import { heroPrompt, collegePrompts, campusGalleryPrompts } from '../lib/mediaPrompts'
+import { heroImage, programImages } from '../lib/realMedia'
 
 export function Home() {
   const { t } = useLanguage()
@@ -52,7 +53,14 @@ export function Home() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <MediaPlaceholder promptId="home-hero" aspect="4/3" shotType="Editorial" prompt={heroPrompt} />
+            <MediaPlaceholder
+              promptId="home-hero"
+              aspect="4/3"
+              shotType="Editorial"
+              prompt={heroPrompt}
+              src={heroImage}
+              alt={t.home.headline}
+            />
           </Reveal>
         </div>
       </section>
@@ -73,6 +81,7 @@ export function Home() {
                 duration={program.duration}
                 promptId={`home-${college.id}`}
                 prompt={collegePrompts[college.id]}
+                image={programImages[program.name]}
               />
             </Reveal>
           ))}
